@@ -177,13 +177,18 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
 .hero{
   position:relative;height:92vh;min-height:560px;display:flex;align-items:flex-end;
   margin-top:calc(-1 * var(--header-h));
-  background:
-    radial-gradient(circle at 78% 18%, rgba(150,151,129,.55), transparent 55%),
-    linear-gradient(155deg, var(--navy) 0%, #223350 46%, var(--chocolate) 100%);
+  background:var(--navy);
   overflow:hidden;color:var(--warm-white);
 }
+.hero-media{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(24,36,56,.96) 0%,rgba(24,36,56,.78) 38%,rgba(24,36,56,.22) 68%,rgba(24,36,56,.04) 100%);
+}
 .hero::after{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background-image:repeating-linear-gradient(115deg, rgba(252,250,247,.05) 0 2px, transparent 2px 90px);
 }
 .hero-content{position:relative;z-index:2;padding:0 32px 76px;max-width:1240px;margin:0 auto;width:100%}
@@ -193,6 +198,12 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .hero-mark-wrap{position:absolute;right:6%;bottom:-4%;opacity:.16;z-index:1}
 .hero-mark-wrap .mark{width:180px;height:330px}
+@media(max-width:720px){
+  .hero{height:88svh;min-height:620px}
+  .hero-media{object-position:68% center}
+  .hero::before{background:linear-gradient(0deg,rgba(24,36,56,.98) 0%,rgba(24,36,56,.82) 48%,rgba(24,36,56,.12) 100%)}
+  .hero-content{padding:0 22px 54px}
+}
 
 /* ---------- colour story ---------- */
 .colour-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:52px;background:var(--line-soft)}
@@ -225,10 +236,8 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
   aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--ivory);
   display:flex;align-items:center;justify-content:center;
 }
-.p-visual .mark{width:34px;height:62px;transition:opacity .4s ease,transform .4s ease}
-.p-visual .back-icon{position:absolute;opacity:0;transition:opacity .4s ease}
-.p-card:hover .p-visual .mark{opacity:0}
-.p-card:hover .p-visual .back-icon{opacity:.85}
+.product-image{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.p-card:hover .product-image{transform:scale(1.025)}
 .p-tag{
   position:absolute;top:12px;left:12px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
   background:var(--warm-white);padding:5px 9px;font-weight:600;color:var(--charcoal);
@@ -245,6 +254,7 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
   font-weight:600;transform:translateY(100%);transition:transform .3s ease;
 }
 .p-card:hover .quick-add{transform:translateY(0)}
+@media(hover:none){.quick-add{transform:none}}
 .p-info{padding-top:14px}
 .p-info .pname{font-size:14.5px;font-weight:500}
 .p-fit{font-size:11px;color:var(--sage);letter-spacing:.06em;margin-top:2px}
@@ -277,25 +287,28 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
 
 /* ---------- accessories ---------- */
 .acc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
-.acc-card{background:var(--ivory);padding:30px 24px;position:relative}
+.acc-card{background:var(--warm-white);position:relative;overflow:hidden}
 .acc-card .soon{
   position:absolute;top:14px;right:14px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--sage);font-weight:600;
+  color:var(--navy);font-weight:600;background:rgba(252,250,247,.88);padding:5px 8px;z-index:2;
 }
-.acc-visual{aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.acc-visual{aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden;background:var(--ivory)}
+.acc-visual img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.acc-card:hover .acc-visual img{transform:scale(1.025)}
 .acc-card h5{font-size:13.5px;font-weight:500}
 .acc-card p{font-size:12px;color:rgba(32,32,32,.55);margin-top:4px}
+.acc-copy{padding:0 22px 24px}
 @media(max-width:900px){.acc-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* ---------- editorial feature (backpack/thermos) ---------- */
+/* ---------- editorial product features ---------- */
 .feature{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .feature.rev{grid-template-columns:1fr 1fr}
 .feature.rev .feature-visual{order:2}
 .feature-visual{
   aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;
-  background:var(--navy);
+  background:var(--ivory);overflow:hidden;
 }
-.feature.thermos .feature-visual{background:var(--chocolate)}
+.feature-visual img{width:100%;height:100%;object-fit:cover}
 .feature-text h2{max-width:420px}
 .feature-text .spec-list{list-style:none;margin-top:26px}
 .feature-text .spec-list li{
@@ -321,7 +334,9 @@ header.site.solid{background:rgba(252,250,247,.94);backdrop-filter:blur(10px);co
 /* ---------- journal ---------- */
 .journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
 .j-card{text-decoration:none;color:var(--charcoal)}
-.j-visual{aspect-ratio:4/3;background:var(--ivory);margin-bottom:16px}
+.j-visual{aspect-ratio:4/3;background:var(--ivory);margin-bottom:16px;overflow:hidden}
+.j-visual img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.j-card:hover .j-visual img{transform:scale(1.025)}
 .j-cat{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);font-weight:600}
 .j-card h5{font-size:15px;font-weight:500;margin-top:8px;line-height:1.4}
 @media(max-width:820px){.journal-grid{grid-template-columns:1fr}}
@@ -425,7 +440,7 @@ footer{background:var(--ivory);padding-top:70px}
       <a href="#featured">Women</a>
       <a href="#featured">Men</a>
       <a href="#accessories">Accessories</a>
-      <a href="#bags">Bags</a>
+      <a href="#hydration">Hydration</a>
       <a href="#story">About</a>
       <a href="#journal">Journal</a>
     </nav>
@@ -464,7 +479,7 @@ footer{background:var(--ivory);padding-top:70px}
     <li><a href="#featured">Men</a></li>
     <li><a href="#accessories">Accessories</a></li>
     <li><a href="#accessories">Footwear</a></li>
-    <li><a href="#bags">Bags</a></li>
+    <li><a href="#hydration">Hydration</a></li>
   </ul>
   <h4>Brand</h4>
   <ul>
@@ -511,6 +526,7 @@ footer{background:var(--ivory);padding-top:70px}
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <img class="hero-media" src="assets/images/hero-lifestyle.jpg" alt="" fetchpriority="high" decoding="async">
   <div class="hero-mark-wrap" aria-hidden="true"><svg class="mark load" viewBox="0 0 30 56"><use href="#ileriMark"/></svg></div>
   <div class="hero-content">
     <div class="hero-eyebrow">The First Release</div>
@@ -600,51 +616,41 @@ footer{background:var(--ivory);padding-top:70px}
   </div>
 </section>
 
-<!-- BACKPACK FEATURE -->
-<section id="bags">
+<!-- SIGNATURE THERMOS FEATURE -->
+<section id="hydration">
   <div class="wrap feature reveal">
     <div class="feature-visual">
-      <svg width="150" height="210" viewBox="0 0 150 210" fill="none">
-        <path d="M20,40 Q20,10 55,10 L110,10 Q130,10 130,40 L130,190 Q130,205 112,205 L38,205 Q20,205 20,190 Z" stroke="#F3EDE2" stroke-width="1.6" fill="none"/>
-        <path d="M20,40 Q20,10 55,10 L95,10 L130,55 L130,190 Q130,205 112,205 L38,205 Q20,205 20,190 Z" fill="rgba(243,237,226,.06)"/>
-        <rect x="42" y="60" width="66" height="90" rx="4" stroke="#F3EDE2" stroke-width="1" stroke-opacity=".5"/>
-        <line x1="122" y1="70" x2="122" y2="140" stroke="#959781" stroke-width="1.4"/>
-        <svg x="66" y="176" width="18" height="24" viewBox="0 0 30 56"><use href="#ileriMark" fill="#959781"/></svg>
-      </svg>
+      <img src="assets/images/accessory-thermos.jpg" alt="Burgundy ILERI signature thermos" loading="lazy" decoding="async">
     </div>
     <div class="feature-text">
       <div class="eyebrow">Coming Soon</div>
-      <h2>Carry what matters.</h2>
-      <p class="lede">A minimalist backpack with a side profile drawn from a single ILERI bar — slim, upright and unmistakably ours.</p>
+      <h2>The signature thermos.</h2>
+      <p class="lede">Shaped by the double bar — one edge straight, the other softly rounded — and designed to keep every shift moving.</p>
       <ul class="spec-list">
-        <li>Padded laptop compartment</li>
-        <li>Water-resistant fabric, tone-on-tone hardware</li>
-        <li>Bottle pocket, elastic on one edge only</li>
-        <li>Padded straps and back panel</li>
+        <li>Double-wall stainless-steel insulation</li>
+        <li>Up to 24 hours cold · 12 hours hot</li>
+        <li>Leak-proof opening and cup-holder fit</li>
+        <li>Ivory · Sage · Navy · Burgundy · Chocolate · Black</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- THERMOS FEATURE -->
+<!-- TRITAN BOTTLE FEATURE -->
 <section style="background:var(--ivory)">
   <div class="wrap feature rev thermos reveal">
     <div class="feature-visual">
-      <svg width="110" height="210" viewBox="0 0 110 210" fill="none">
-        <path d="M15,30 Q15,10 40,10 L70,10 Q95,25 95,45 L95,190 Q95,205 78,205 L32,205 Q15,205 15,190 Z" stroke="#FCFAF7" stroke-width="1.6"/>
-        <rect x="30" y="0" width="50" height="14" rx="3" stroke="#FCFAF7" stroke-width="1.4"/>
-        <svg x="42" y="90" width="24" height="30" viewBox="0 0 30 56"><use href="#ileriMark" fill="#FCFAF7" fill-opacity=".55"/></svg>
-      </svg>
+      <img src="assets/images/accessory-tritan-bottle.jpg" alt="Clear ILERI Tritan water bottle with ivory lid and carry strap" loading="lazy" decoding="async">
     </div>
     <div class="feature-text">
       <div class="eyebrow">Coming Soon</div>
-      <h2>Hydration, shaped by ILERI.</h2>
-      <p class="lede">A single-bar silhouette — one straight edge, one softly rounded — with a cap that continues the body seamlessly.</p>
+      <h2>Designed to move with you.</h2>
+      <p class="lede">A lightweight Tritan bottle with the ILERI signature in every detail — from the secure lid lock to the embossed carry strap.</p>
       <ul class="spec-list">
-        <li>Matte finish, double-wall insulation</li>
-        <li>Leak-proof opening</li>
-        <li>Double-bar icon embossed on the cap</li>
-        <li>Ivory · Sage · Navy · Burgundy · Chocolate · Black</li>
+        <li>750ml capacity · BPA-free Tritan</li>
+        <li>Leak-proof flip-straw lid</li>
+        <li>Comfortable embossed carry strap</li>
+        <li>Measurement guide and easy-grip profile</li>
       </ul>
     </div>
   </div>
@@ -675,9 +681,9 @@ footer{background:var(--ivory);padding-top:70px}
     <div class="eyebrow reveal">The Journal</div>
     <h2 class="reveal">Behind the design.</h2>
     <div class="journal-grid reveal">
-      <a class="j-card" href="#"><div class="j-visual"></div><div class="j-cat">Behind the Design</div><h5>The story behind the name ILERI</h5></a>
-      <a class="j-card" href="#"><div class="j-visual"></div><div class="j-cat">Care</div><h5>How to choose the right scrub fit</h5></a>
-      <a class="j-card" href="#"><div class="j-visual"></div><div class="j-cat">On Shift</div><h5>Designing scrub caps for natural hair</h5></a>
+      <a class="j-card" href="#"><div class="j-visual"><img src="assets/images/hero-lifestyle.jpg" alt="" loading="lazy" decoding="async"></div><div class="j-cat">Behind the Design</div><h5>The story behind the name ILERI</h5></a>
+      <a class="j-card" href="#"><div class="j-visual"><img src="assets/images/scrub-signature-burgundy.jpg" alt="" loading="lazy" decoding="async"></div><div class="j-cat">Care</div><h5>How to choose the right scrub fit</h5></a>
+      <a class="j-card" href="#"><div class="j-visual"><img src="assets/images/accessory-sanitiser-carrier.jpg" alt="" loading="lazy" decoding="async"></div><div class="j-cat">On Shift</div><h5>Designing everyday essentials for healthcare</h5></a>
     </div>
   </div>
 </section>
@@ -742,7 +748,7 @@ footer{background:var(--ivory);padding-top:70px}
       </div>
       <div class="foot-col">
         <h6>Shop</h6>
-        <ul><li><a href="#featured">Women</a></li><li><a href="#featured">Men</a></li><li><a href="#featured">Scrubs</a></li><li><a href="#accessories">Accessories</a></li><li><a href="#accessories">Footwear</a></li><li><a href="#bags">Bags</a></li><li><a href="#">Gift Cards</a></li></ul>
+        <ul><li><a href="#featured">Women</a></li><li><a href="#featured">Men</a></li><li><a href="#featured">Scrubs</a></li><li><a href="#accessories">Accessories</a></li><li><a href="#accessories">Footwear</a></li><li><a href="#hydration">Hydration</a></li><li><a href="#">Gift Cards</a></li></ul>
       </div>
       <div class="foot-col">
         <h6>Help</h6>
@@ -775,21 +781,17 @@ const COLOURS = [
 ];
 
 const PRODUCTS = [
-  {id:'p1', name:'The Signature Scrub Set', price:128, fit:'Tailored',  colour:'navy'},
-  {id:'p2', name:'The Essential V-Neck Top', price:58,  fit:'Regular',  colour:'sage'},
-  {id:'p3', name:'The Performance Jogger',   price:64,  fit:'Athletic', colour:'chocolate'},
-  {id:'p4', name:'The Tailored Scrub Trouser', price:68, fit:'Relaxed', colour:'burgundy'}
+  {id:'p1', name:'The Signature Scrub Set', price:128, fit:'Tailored', colour:'burgundy', image:'assets/images/scrub-signature-burgundy.jpg'},
+  {id:'p2', name:'The Essential V-Neck Top', price:58, fit:'Regular', colour:'sage', image:'assets/images/scrub-essential-sage.jpg'},
+  {id:'p3', name:'The Performance Jogger', price:64, fit:'Athletic', colour:'navy', image:'assets/images/scrub-performance-navy.jpg'},
+  {id:'p4', name:'The Tailored Scrub Trouser', price:68, fit:'Relaxed', colour:'chocolate', image:'assets/images/scrub-tailored-chocolate.jpg'}
 ];
 
 const ACCESSORIES = [
-  {name:'Stainless Thermos', desc:'Double-wall insulated'},
-  {name:'Tritan Water Bottle', desc:'Leak-proof, lightweight'},
-  {name:'Sanitiser Spray', desc:'Fine mist, clip carrier'},
-  {name:'Woven Lanyard', desc:'Breakaway safety clip'},
-  {name:'Slip-On Scrub Shoe', desc:'Slip-resistant sole'},
-  {name:'Compression Socks', desc:'Graduated support'},
-  {name:'ID Holder', desc:'Tone-on-tone hardware'},
-  {name:'Sanitiser Gel', desc:'Refillable, 50ml'}
+  {name:'The Signature Thermos', desc:'Double-wall insulated · 500ml', image:'assets/images/accessory-thermos.jpg'},
+  {name:'Tritan Water Bottle', desc:'Leak-proof and lightweight · 750ml', image:'assets/images/accessory-tritan-bottle.jpg'},
+  {name:'Sanitiser Carrier', desc:'Secure clip and refillable flask · 50ml', image:'assets/images/accessory-sanitiser-carrier.jpg'},
+  {name:'The Everyday Flask', desc:'Matte stainless steel · 500ml', image:'assets/images/accessory-everyday-flask.jpg'}
 ];
 
 const JOURNAL_INDEX = [
@@ -835,10 +837,9 @@ function renderProducts(){
     card.className = 'p-card';
     card.dataset.id = p.id;
     card.innerHTML = `
-      <div class="p-visual" style="background:${hex(p.colour)}">
-        <svg class="mark" style="color:${p.colour==='ivory' ? '#182438' : '#FCFAF7'}"><use href="#ileriMark"/></svg>
-        <svg class="back-icon" width="46" height="46" viewBox="0 0 46 46" fill="none" stroke="${p.colour==='ivory' ? '#182438' : '#FCFAF7'}" stroke-width="1.3"><rect x="8" y="6" width="30" height="36" rx="3"/><line x1="8" y1="14" x2="38" y2="14"/></svg>
-        <button class="wish-btn" aria-label="Add to wishlist" data-id="${p.id}">
+      <div class="p-visual">
+        <img class="product-image" src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
+        <button class="wish-btn ${wishlist.has(p.id)?'active':''}" aria-label="${wishlist.has(p.id)?'Remove from':'Add to'} wishlist" aria-pressed="${wishlist.has(p.id)}" data-id="${p.id}">
           <svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.6-9C.8 7.5 2.8 4 6.4 4c2 0 3.6 1.1 4.6 2.8C12 5.1 13.6 4 15.6 4c3.6 0 5.6 3.5 4 7-2.1 4.4-9.6 9-9.6 9z"/></svg>
         </button>
         <div class="p-tag">New</div>
@@ -879,6 +880,8 @@ function bindProductEvents(){
       const id = btn.dataset.id;
       if(wishlist.has(id)){ wishlist.delete(id); btn.classList.remove('active'); }
       else { wishlist.add(id); btn.classList.add('active'); }
+      btn.setAttribute('aria-pressed', wishlist.has(id));
+      btn.setAttribute('aria-label', `${wishlist.has(id)?'Remove from':'Add to'} wishlist`);
       updateWishBadge();
     });
   });
@@ -905,8 +908,8 @@ ACCESSORIES.forEach(a=>{
   el.className = 'acc-card';
   el.innerHTML = `
     <div class="soon">Coming Soon</div>
-    <div class="acc-visual"><svg class="mark" style="color:#182438;opacity:.55"><use href="#ileriMark"/></svg></div>
-    <h5>${a.name}</h5><p>${a.desc}</p>`;
+    <div class="acc-visual"><img src="${a.image}" alt="${a.name}" loading="lazy" decoding="async"></div>
+    <div class="acc-copy"><h5>${a.name}</h5><p>${a.desc}</p></div>`;
   accGrid.appendChild(el);
 });
 
