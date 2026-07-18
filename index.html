@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ILERI creates premium, tropical-climate medical apparel for African healthcare professionals.">
+<title>ILERI — Medical Apparel. Designed for Every Shift.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#161B2E;
+  --ivory:#F4F0E8;
+  --sand:#E6DBC8;
+  --gold:#AE8A4C;
+  --ink:#1F2333;
+  --line:rgba(22,27,46,.16);
+  --burgundy:#692B34;
+  --olive:#4C5038;
+  --navy:#243350;
+  --black:#20222A;
+  --caribbean:#2E7F98;
+  --camel:#B98F62;
+  --scrub:#243350;
+  --scrub-dark:#1B2740;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--ivory)}
+
+/* ---------- utility ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+}
+.eyebrow::before{
+  content:"";display:inline-block;width:3px;height:16px;
+  border-left:2px solid var(--gold);border-right:1px solid var(--gold);
+}
+.serif{font-family:'Newsreader',serif}
+h2{
+  font-family:'Newsreader',serif;font-weight:300;
+  font-size:clamp(30px,4.4vw,52px);line-height:1.12;
+  letter-spacing:-.01em;margin:20px 0 18px;
+}
+h2 em{font-style:italic;color:var(--gold)}
+.lede{max-width:560px;font-size:17px;color:rgba(31,35,51,.78)}
+section{padding:110px 0}
+.btn{
+  display:inline-block;padding:15px 38px;
+  font-family:'Jost';font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--midnight);color:var(--midnight);background:transparent;
+  text-decoration:none;cursor:pointer;transition:all .35s ease;
+}
+.btn:hover{background:var(--midnight);color:var(--ivory)}
+.btn.solid{background:var(--midnight);color:var(--ivory)}
+.btn.solid:hover{background:var(--gold);border-color:var(--gold)}
+.btn.light{border-color:var(--ivory);color:var(--ivory)}
+.btn.light:hover{background:var(--ivory);color:var(--midnight)}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(244,240,232,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--midnight)}
+.bars{display:inline-flex;gap:3px;align-items:stretch;height:22px}
+.bars i{display:block;width:4px;background:var(--midnight)}
+.bars i:last-child{width:2px}
+.logo span{font-size:17px;letter-spacing:.42em;font-weight:500}
+.logo small{display:block;font-size:8px;letter-spacing:.3em;color:var(--gold);font-weight:500;margin-top:-2px}
+.nav-links{display:flex;gap:34px}
+.nav-links a{
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;
+  color:var(--ink);text-decoration:none;transition:color .3s;
+}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:150px 0 90px;position:relative;overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero .eyebrow{margin-bottom:26px}
+h1{
+  font-family:'Newsreader',serif;font-weight:300;
+  font-size:clamp(44px,6.6vw,84px);line-height:1.04;letter-spacing:-.015em;
+}
+h1 em{font-style:italic;color:var(--gold)}
+.hero p{margin:28px 0 40px;max-width:480px;font-size:17px;color:rgba(31,35,51,.75)}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-mark{
+  display:flex;gap:26px;height:min(52vh,440px);
+}
+.hero-mark i{
+  display:block;background:var(--midnight);width:64px;
+  animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both;
+}
+.hero-mark i:last-child{width:26px;background:var(--gold);animation-delay:.15s}
+@keyframes rise{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1)}}
+.hero-caption{
+  position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(31,35,51,.5);white-space:nowrap;
+}
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:18px 0;overflow:hidden;white-space:nowrap;
+}
+.ticker-track{display:inline-block;animation:scroll 34s linear infinite}
+.ticker span{
+  font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(31,35,51,.6);
+  margin-right:64px;
+}
+.ticker span::after{content:"‖";color:var(--gold);margin-left:64px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{order:-1}.hero-mark{height:200px}.hero-mark i{width:40px}.hero-mark i:last-child{width:16px}}
+
+/* ---------- collections ---------- */
+.collections{background:var(--sand)}
+.coll-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:56px;
+}
+.coll{
+  background:var(--sand);padding:44px 24px 32px;min-height:250px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  cursor:pointer;transition:background .4s;position:relative;overflow:hidden;
+}
+.coll:hover{background:var(--ivory)}
+.coll .num{font-size:11px;letter-spacing:.3em;color:var(--gold);font-weight:500}
+.coll h3{font-family:'Newsreader',serif;font-weight:300;font-size:24px;margin-top:14px;line-height:1.2}
+.coll p{font-size:13px;color:rgba(31,35,51,.62);margin-top:8px}
+.coll .go{
+  margin-top:24px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;
+  color:var(--midnight);opacity:0;transform:translateY(6px);transition:all .35s;
+}
+.coll:hover .go{opacity:1;transform:translateY(0)}
+@media(max-width:1000px){.coll-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.coll-grid{grid-template-columns:1fr}}
+
+/* ---------- studio (color switcher + embroidery) ---------- */
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:60px;align-items:center}
+.garment-stage{
+  background:var(--sand);border:1px solid var(--line);
+  padding:48px 30px 30px;display:flex;flex-direction:column;align-items:center;gap:22px;
+}
+.garment-stage svg{width:100%;max-width:360px;height:auto}
+.scrub-body{fill:var(--scrub);transition:fill .5s ease}
+.scrub-shade{fill:var(--scrub-dark);transition:fill .5s ease}
+.stage-label{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:rgba(31,35,51,.55)}
+.control-block{margin-bottom:38px}
+.control-block h4{
+  font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;margin-bottom:16px;
+}
+.swatches{display:flex;gap:14px;flex-wrap:wrap}
+.swatch{
+  width:40px;height:40px;border-radius:50%;cursor:pointer;position:relative;
+  border:1px solid rgba(22,27,46,.2);transition:transform .25s;
+}
+.swatch:hover{transform:scale(1.12)}
+.swatch.active::after{
+  content:"";position:absolute;inset:-6px;border:1px solid var(--gold);border-radius:50%;
+}
+.swatch-name{font-size:13px;color:rgba(31,35,51,.7);margin-top:12px;min-height:20px}
+.swatch-name b{font-weight:500;color:var(--ink)}
+.embroidery-input{
+  width:100%;max-width:340px;padding:14px 16px;
+  font-family:'Jost';font-size:15px;letter-spacing:.06em;
+  background:transparent;border:1px solid var(--line);color:var(--ink);outline:none;
+  transition:border-color .3s;
+}
+.embroidery-input:focus{border-color:var(--gold)}
+.hint{font-size:12px;color:rgba(31,35,51,.5);margin-top:10px}
+.feature-list{list-style:none;margin-top:6px}
+.feature-list li{
+  padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:14px;display:flex;justify-content:space-between;gap:20px;
+}
+.feature-list li span:last-child{color:rgba(31,35,51,.55);text-align:right}
+@media(max-width:900px){.studio-grid{grid-template-columns:1fr}}
+
+/* ---------- fabric ---------- */
+.fabric{background:var(--midnight);color:var(--ivory)}
+.fabric .eyebrow{color:var(--gold)}
+.fabric h2{color:var(--ivory)}
+.fabric .lede{color:rgba(244,240,232,.7)}
+.fabric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,240,232,.14);border:1px solid rgba(244,240,232,.14);margin-top:60px}
+.fab-cell{background:var(--midnight);padding:36px 28px}
+.fab-cell .big{
+  font-family:'Newsreader',serif;font-weight:300;font-size:46px;color:var(--gold);line-height:1;
+}
+.fab-cell .unit{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,240,232,.55);margin-top:8px}
+.fab-cell p{font-size:14px;color:rgba(244,240,232,.72);margin-top:14px}
+.perf-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
+.perf-row span{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid rgba(244,240,232,.28);padding:9px 18px;color:rgba(244,240,232,.85);
+}
+@media(max-width:800px){.fabric-grid{grid-template-columns:1fr}}
+
+/* ---------- caps ---------- */
+.caps-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;margin-top:56px;align-items:start}
+.hair-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.hair-btn{
+  padding:20px 18px;text-align:left;cursor:pointer;background:transparent;
+  border:1px solid var(--line);font-family:'Jost';transition:all .3s;
+}
+.hair-btn h5{font-size:14px;font-weight:500;letter-spacing:.08em}
+.hair-btn p{font-size:12px;color:rgba(31,35,51,.55);margin-top:4px;font-weight:300}
+.hair-btn:hover{border-color:var(--midnight)}
+.hair-btn.active{background:var(--midnight);border-color:var(--midnight)}
+.hair-btn.active h5{color:var(--ivory)}
+.hair-btn.active p{color:rgba(244,240,232,.65)}
+.cap-result{
+  background:var(--sand);border:1px solid var(--line);padding:40px 36px;min-height:320px;
+}
+.cap-result .eyebrow{margin-bottom:18px}
+.cap-result h3{font-family:'Newsreader',serif;font-weight:300;font-size:30px;line-height:1.15}
+.cap-result p{font-size:15px;color:rgba(31,35,51,.72);margin-top:16px;max-width:440px}
+.cap-specs{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
+.cap-specs div{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.cap-specs b{display:block;font-family:'Newsreader',serif;font-size:20px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--gold);margin-bottom:2px}
+@media(max-width:900px){.caps-grid{grid-template-columns:1fr}}
+
+/* ---------- story ---------- */
+.story{background:var(--sand)}
+.story-inner{max-width:820px;margin:0 auto;text-align:center;padding:0 32px}
+.story .eyebrow{justify-content:center}
+.story blockquote{
+  font-family:'Newsreader',serif;font-weight:300;font-style:italic;
+  font-size:clamp(24px,3.4vw,38px);line-height:1.35;margin:30px 0;
+}
+.story blockquote strong{color:var(--gold);font-weight:400}
+.story p{font-size:16px;color:rgba(31,35,51,.72);max-width:640px;margin:0 auto}
+
+/* ---------- preorder ---------- */
+.preorder{background:var(--midnight);color:var(--ivory);text-align:center}
+.preorder .eyebrow{justify-content:center}
+.preorder h2{color:var(--ivory)}
+.preorder p{color:rgba(244,240,232,.7);max-width:520px;margin:0 auto 40px;font-size:16px}
+.signup{display:flex;max-width:480px;margin:0 auto;border:1px solid rgba(244,240,232,.35)}
+.signup input{
+  flex:1;background:transparent;border:none;outline:none;padding:16px 20px;
+  color:var(--ivory);font-family:'Jost';font-size:14px;letter-spacing:.04em;
+}
+.signup input::placeholder{color:rgba(244,240,232,.45)}
+.signup button{
+  background:var(--gold);border:none;color:var(--midnight);cursor:pointer;
+  font-family:'Jost';font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
+  padding:0 30px;transition:background .3s;
+}
+.signup button:hover{background:var(--ivory)}
+.signup-msg{margin-top:18px;font-size:13px;color:var(--gold);min-height:20px;letter-spacing:.08em}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(31,35,51,.5)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">
+      <span class="bars"><i></i><i></i></span>
+      <span>ILERI<small>Medical Apparel</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#studio">Design Studio</a>
+      <a href="#fabric">Fabric</a>
+      <a href="#caps">Caps</a>
+      <a href="#story">Our Story</a>
+      <a href="#preorder">Pre-order</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Premium Medical Apparel · Lagos → The World</div>
+      <h1>Designed for<br><em>every shift.</em></h1>
+      <p>Performance scrubs engineered for African healthcare professionals — tailored fits, tropical-climate fabric, and hair-inclusive caps. Uniform is not a word we use here.</p>
+      <div class="hero-actions">
+        <a href="#studio" class="btn solid">Build your set</a>
+        <a href="#story" class="btn">Why ILERI exists</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-mark" aria-hidden="true"><i></i><i></i></div>
+      <div class="hero-caption">The double bar — worn quietly, on every garment</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Moisture-wicking</span><span>4-way stretch</span><span>Tropical-climate ready</span><span>Hair-inclusive caps</span><span>Tailored silhouettes</span><span>Hidden phone pocket</span><span>Anti-pilling</span><span>Premium embroidery</span>
+    <span>Moisture-wicking</span><span>4-way stretch</span><span>Tropical-climate ready</span><span>Hair-inclusive caps</span><span>Tailored silhouettes</span><span>Hidden phone pocket</span><span>Anti-pilling</span><span>Premium embroidery</span>
+  </div>
+</div>
+
+<section class="collections" id="collections">
+  <div class="wrap">
+    <div class="eyebrow reveal">Shop by collection</div>
+    <h2 class="reveal">Five lines. One <em>standard.</em></h2>
+    <p class="lede reveal">Every piece cut from the same performance fabric, finished with the double bar, and sized for real bodies — from petite to tall, first collection to theatre floor.</p>
+    <div class="coll-grid reveal">
+      <div class="coll"><div><div class="num">CORE</div><h3>The Core Set</h3><p>Classic V-neck top and tailored trouser. The everyday standard.</p></div><div class="go">Explore →</div></div>
+      <div class="coll"><div><div class="num">WOMEN</div><h3>Women's</h3><p>Elastic-back V-neck, mandarin collar, corset-inspired silhouettes.</p></div><div class="go">Explore →</div></div>
+      <div class="coll"><div><div class="num">MEN</div><h3>Men's</h3><p>Athletic V-neck, mandarin collar, classic fit.</p></div><div class="go">Explore →</div></div>
+      <div class="coll"><div><div class="num">LAB</div><h3>Lab Coats</h3><p>Tailored, minimal embroidery, made to be personalised.</p></div><div class="go">Explore →</div></div>
+      <div class="coll"><div><div class="num">CAPS</div><h3>Scrub Caps</h3><p>Built for afros, braids, locs and twists — never bonnet-like.</p></div><div class="go">Explore →</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="wrap">
+    <div class="eyebrow reveal">Design studio</div>
+    <h2 class="reveal">Your colour. Your name.<br><em>Your set.</em></h2>
+    <p class="lede reveal">Switch colours instantly and preview your embroidery before you order. What you see is what arrives.</p>
+
+    <div class="studio-grid">
+      <div class="garment-stage reveal">
+        <svg viewBox="0 0 360 400" role="img" aria-label="Preview of a V-neck scrub top in the selected colour with your embroidered name">
+          <!-- sleeves -->
+          <path class="scrub-shade" d="M78 96 L18 148 L44 210 L96 176 Z"/>
+          <path class="scrub-shade" d="M282 96 L342 148 L316 210 L264 176 Z"/>
+          <!-- body -->
+          <path class="scrub-body" d="M120 78 L78 96 L96 200 L92 368 L268 368 L264 200 L282 96 L240 78 L212 88 L180 132 L148 88 Z"/>
+          <!-- v-neck trim -->
+          <path d="M148 88 L180 132 L212 88" fill="none" stroke="var(--ivory)" stroke-opacity=".85" stroke-width="5" stroke-linecap="round"/>
+          <!-- side slits -->
+          <line x1="98" y1="330" x2="98" y2="366" stroke="var(--ivory)" stroke-opacity=".5" stroke-width="2"/>
+          <line x1="262" y1="330" x2="262" y2="366" stroke="var(--ivory)" stroke-opacity=".5" stroke-width="2"/>
+          <!-- chest pocket -->
+          <rect x="212" y="150" width="46" height="52" fill="none" stroke="var(--ivory)" stroke-opacity=".55" stroke-width="1.6"/>
+          <!-- double bar mark on pocket -->
+          <rect x="228" y="162" width="4" height="20" fill="var(--gold)"/>
+          <rect x="236" y="162" width="2" height="20" fill="var(--gold)"/>
+          <!-- lower pockets -->
+          <path d="M108 268 L154 262 L156 316 L112 320 Z" fill="none" stroke="var(--ivory)" stroke-opacity=".45" stroke-width="1.6"/>
+          <path d="M252 268 L206 262 L204 316 L248 320 Z" fill="none" stroke="var(--ivory)" stroke-opacity=".45" stroke-width="1.6"/>
+          <!-- embroidery text -->
+          <text id="embroideryText" x="132" y="182" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="15" fill="#E9E2D2">Dr. M. Adeoye</text>
+          <text x="132" y="200" text-anchor="middle" font-family="Jost,sans-serif" font-size="9" letter-spacing="2" fill="#E9E2D2" opacity=".75" id="embroideryTitle">CARDIOLOGY</text>
+        </svg>
+        <div class="stage-label">Women's Elastic-Back V-Neck · <span id="colourLabel">Navy</span></div>
+      </div>
+
+      <div class="reveal">
+        <div class="control-block">
+          <h4>Colour</h4>
+          <div class="swatches" role="group" aria-label="Choose a colour">
+            <button class="swatch" style="background:#692B34" data-c="#692B34" data-d="#552028" data-name="Burgundy" aria-label="Burgundy"></button>
+            <button class="swatch" style="background:#4C5038" data-c="#4C5038" data-d="#3B3F2B" data-name="Deep Olive" aria-label="Deep Olive"></button>
+            <button class="swatch active" style="background:#243350" data-c="#243350" data-d="#1B2740" data-name="Navy" aria-label="Navy"></button>
+            <button class="swatch" style="background:#20222A" data-c="#20222A" data-d="#15161C" data-name="Black" aria-label="Black"></button>
+            <button class="swatch" style="background:#2E7F98" data-c="#2E7F98" data-d="#246579" data-name="Caribbean Blue" aria-label="Caribbean Blue"></button>
+            <button class="swatch" style="background:#B98F62" data-c="#B98F62" data-d="#9C764E" data-name="Camel — Limited" aria-label="Camel, limited edition"></button>
+          </div>
+          <div class="swatch-name">Selected: <b id="swatchName">Navy</b></div>
+        </div>
+
+        <div class="control-block">
+          <h4>Embroidery preview</h4>
+          <input class="embroidery-input" id="nameInput" maxlength="22" placeholder="Dr. M. Adeoye" aria-label="Your name for embroidery">
+          <input class="embroidery-input" id="titleInput" maxlength="18" placeholder="Cardiology" aria-label="Your specialty for embroidery" style="margin-top:10px">
+          <div class="hint">Champagne-thread embroidery, stitched below the double bar. Add your hospital logo at checkout.</div>
+        </div>
+
+        <div class="control-block" style="margin-bottom:0">
+          <h4>In this garment</h4>
+          <ul class="feature-list">
+            <li><span>Hidden phone pocket</span><span>Right seam</span></li>
+            <li><span>Elastic back panel</span><span>Tailored through the waist</span></li>
+            <li><span>Double lower pockets + chest pocket</span><span>Deep-set</span></li>
+            <li><span>Side slits</span><span>Full range of motion</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fabric" id="fabric">
+  <div class="wrap">
+    <div class="eyebrow reveal">The fabric</div>
+    <h2 class="reveal">Engineered for a <em>34°C ward round.</em></h2>
+    <p class="lede reveal">Most scrubs are made for air-conditioned hospitals in temperate cities. Ours are built for Lagos, Accra, Nairobi — and everywhere your shift takes you.</p>
+    <div class="fabric-grid reveal">
+      <div class="fab-cell"><div class="big">72 / 21 / 7</div><div class="unit">Polyester · Rayon · Spandex</div><p>Our signature blend: structure from polyester, drape and softness from rayon, four-way stretch from spandex.</p></div>
+      <div class="fab-cell"><div class="big">160–180</div><div class="unit">GSM fabric weight</div><p>Light enough to breathe in tropical heat, substantial enough to hold a tailored silhouette shift after shift.</p></div>
+      <div class="fab-cell"><div class="big">4-way</div><div class="unit">Stretch &amp; recovery</div><p>Squat to a bed rail, reach a top shelf, run to a crash call. The fabric moves first and recovers fully.</p></div>
+    </div>
+    <div class="perf-row reveal">
+      <span>Moisture-wicking</span><span>Quick-drying</span><span>Wrinkle-resistant</span><span>Anti-pilling</span><span>Colour-fast</span><span>Soft-touch</span><span>Breathable</span>
+    </div>
+  </div>
+</section>
+
+<section id="caps">
+  <div class="wrap">
+    <div class="eyebrow reveal">Hair-inclusive caps</div>
+    <h2 class="reveal">Made for your hair.<br><em>Not against it.</em></h2>
+    <p class="lede reveal">Standard scrub caps were never designed with African hair in mind. Ours are — with a professional silhouette and real internal volume. Select your style to see your fit.</p>
+
+    <div class="caps-grid">
+      <div class="hair-options reveal" role="group" aria-label="Choose your hairstyle">
+        <button class="hair-btn active" data-cap="afro"><h5>Afro</h5><p>Natural volume, TWA to full crown</p></button>
+        <button class="hair-btn" data-cap="braids"><h5>Braids</h5><p>Box braids, cornrows, knotless</p></button>
+        <button class="hair-btn" data-cap="locs"><h5>Locs</h5><p>Starter to waist-length</p></button>
+        <button class="hair-btn" data-cap="twists"><h5>Twists &amp; protective styles</h5><p>Twists, bantu knots, wigs, threading</p></button>
+      </div>
+      <div class="cap-result reveal">
+        <div class="eyebrow">Your recommended cap</div>
+        <h3 id="capName">The Crown Cap</h3>
+        <p id="capDesc">A structured dome with a satin-lined interior and hidden depth at the crown. Holds a full afro comfortably without flattening it — and reads as sharply professional at the theatre door.</p>
+        <div class="cap-specs">
+          <div><b id="capVolume">High crown</b>Internal volume</div>
+          <div><b>Satin-lined</b>Interior finish</div>
+          <div><b>Tie or toggle</b>Adjustable closure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="eyebrow reveal">Our story</div>
+    <blockquote class="reveal">"Iléri" is Yoruba for <strong>promise</strong>. Our promise is simple: African healthcare professionals deserve apparel made with the same care they give their patients.</blockquote>
+    <p class="reveal">We don't compete on price. We compete on fit, comfort, design, quality and attention to detail — beginning in Nigeria, then Ghana, Kenya, South Africa and the diaspora. This isn't a uniform supplier. It's a performance apparel company for the people who hold healthcare together.</p>
+  </div>
+</section>
+
+<section class="preorder" id="preorder">
+  <div class="wrap">
+    <div class="eyebrow reveal">First collection</div>
+    <h2 class="reveal">300 sets. Six colours.<br><em>One waitlist.</em></h2>
+    <p class="reveal">Our first collection is deliberately small. Join the waitlist for early access, behind-the-scenes development, and first pick of the Camel limited edition.</p>
+    <div class="signup reveal">
+      <input type="email" id="emailInput" placeholder="you@hospital.org" aria-label="Email address">
+      <button id="joinBtn">Join</button>
+    </div>
+    <div class="signup-msg" id="signupMsg"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">
+      <span class="bars"><i></i><i></i></span>
+      <span>ILERI<small>Medical Apparel</small></span>
+    </a>
+    <small>Designed for every shift · © 2026 ILERI</small>
+  </div>
+</footer>
+
+<script>
+// in-page navigation (works even where anchor jumps are blocked, e.g. sandboxed previews)
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+// scroll reveal
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// colour switcher
+const root = document.documentElement;
+document.querySelectorAll('.swatch').forEach(s=>{
+  s.addEventListener('click',()=>{
+    document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));
+    s.classList.add('active');
+    root.style.setProperty('--scrub', s.dataset.c);
+    root.style.setProperty('--scrub-dark', s.dataset.d);
+    document.getElementById('swatchName').textContent = s.dataset.name;
+    document.getElementById('colourLabel').textContent = s.dataset.name.replace(' — Limited','');
+  });
+});
+
+// embroidery preview
+const nameInput = document.getElementById('nameInput');
+const titleInput = document.getElementById('titleInput');
+nameInput.addEventListener('input',()=>{
+  document.getElementById('embroideryText').textContent = nameInput.value || 'Dr. M. Adeoye';
+});
+titleInput.addEventListener('input',()=>{
+  document.getElementById('embroideryTitle').textContent = (titleInput.value || 'Cardiology').toUpperCase();
+});
+
+// caps selector
+const caps = {
+  afro:{name:'The Crown Cap', desc:'A structured dome with a satin-lined interior and hidden depth at the crown. Holds a full afro comfortably without flattening it — and reads as sharply professional at the theatre door.', vol:'High crown'},
+  braids:{name:'The Length Cap', desc:'Extended back chamber with a discreet internal pouch that gathers long box braids or knotless braids securely — no bonnet silhouette, no braids escaping mid-procedure.', vol:'Extended back'},
+  locs:{name:'The Heritage Cap', desc:'Our deepest cap, cut with a reinforced rear panel and weight-balanced fit for mature locs. Sits level on the head all shift, with a clean tailored profile from the front.', vol:'Maximum depth'},
+  twists:{name:'The Versatile Cap', desc:'A softly structured cap with an adjustable interior that adapts to twists, bantu knots, threading and wig caps alike. One cap that fits your style, whatever this week\'s style is.', vol:'Adaptive fit'}
+};
+document.querySelectorAll('.hair-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.hair-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const c = caps[b.dataset.cap];
+    document.getElementById('capName').textContent = c.name;
+    document.getElementById('capDesc').textContent = c.desc;
+    document.getElementById('capVolume').textContent = c.vol;
+  });
+});
+
+// waitlist
+document.getElementById('joinBtn').addEventListener('click',()=>{
+  const v = document.getElementById('emailInput').value.trim();
+  const msg = document.getElementById('signupMsg');
+  if(!v || !v.includes('@')){ msg.textContent = 'Enter a valid email address to join the waitlist.'; return; }
+  msg.textContent = 'You\'re on the list. First collection updates are on their way.';
+  document.getElementById('emailInput').value='';
+});
+</script>
+</body>
+</html>
