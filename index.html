@@ -1,3 +1,194 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ILERI — Premium workwear and essentials for healthcare</title>
+  <meta name="description" content="Discover ILERI's considered collection of premium healthcare workwear and everyday essentials, designed to move with you.">
+  <meta name="theme-color" content="#182438">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ilericollective.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ILERI">
+  <meta property="og:title" content="ILERI — Designed to move with you">
+  <meta property="og:description" content="Premium workwear and thoughtfully designed essentials for healthcare professionals.">
+  <meta property="og:url" content="https://ilericollective.com/">
+  <meta property="og:image" content="https://ilericollective.com/assets/images/hero-lifestyle.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+
+  <svg class="visually-hidden" aria-hidden="true" width="0" height="0">
+    <symbol id="icon-mark" viewBox="0 0 30 56">
+      <path d="M4 2h7v52H4zM19 2h7v52h-7z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.5-4.6-9.6-9C.8 7.5 2.8 4 6.4 4c2 0 3.6 1.1 4.6 2.8C12 5.1 13.6 4 15.6 4c3.6 0 5.6 3.5 4 7-2.1 4.4-9.6 9-9.6 9Z"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M6 8h12l-1 13H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M3 7h18M3 12h18M3 17h18"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="m5 5 14 14M19 5 5 19"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15M14 6l6 6-6 6"/>
+    </symbol>
+  </svg>
+
+  <div class="announcement">The first ILERI collection is in development — explore the launch edit.</div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="icon-button menu-button" type="button" data-open-dialog="mobileMenu" aria-label="Open menu">
+        <svg aria-hidden="true"><use href="#icon-menu"/></svg>
+      </button>
+
+      <a class="brand" href="?view=home" aria-label="ILERI home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#icon-mark"/></svg>
+        <span>ILERI</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="?view=shop">Shop</a>
+        <a href="?view=shop&amp;category=scrubs">Scrubs</a>
+        <a href="?view=shop&amp;colour=burgundy">The Colours</a>
+        <a href="?view=page&amp;slug=about">Our Story</a>
+        <a href="?view=journal">Journal</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-open-dialog="searchDialog" aria-label="Search">
+          <svg aria-hidden="true"><use href="#icon-search"/></svg>
+        </button>
+        <a class="icon-button" href="?view=wishlist" aria-label="Wishlist">
+          <svg aria-hidden="true"><use href="#icon-heart"/></svg>
+          <span class="count-badge" id="wishlistCount" hidden>0</span>
+        </a>
+        <button class="icon-button" type="button" data-open-dialog="cartDrawer" aria-label="Open launch bag">
+          <svg aria-hidden="true"><use href="#icon-bag"/></svg>
+          <span class="count-badge" id="cartCount" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <dialog class="mobile-menu" id="mobileMenu" aria-labelledby="mobileMenuTitle">
+    <div class="dialog-head">
+      <a class="brand" href="?view=home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#icon-mark"/></svg>
+        <span id="mobileMenuTitle">ILERI</span>
+      </a>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close menu">
+        <svg aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <a href="?view=shop">Shop all</a>
+      <a href="?view=shop&amp;category=scrubs">Scrubs</a>
+      <a href="?view=shop&amp;colour=burgundy">Burgundy edit</a>
+      <a href="?view=shop&amp;category=essentials">Everyday essentials</a>
+      <a href="?view=page&amp;slug=about">Our story</a>
+      <a href="?view=journal">Journal</a>
+      <a href="?view=page&amp;slug=contact">Contact</a>
+    </nav>
+  </dialog>
+
+  <dialog class="search-dialog" id="searchDialog" aria-labelledby="searchTitle">
+    <div class="dialog-head">
+      <div>
+        <div class="eyebrow">Find your way</div>
+        <h2 id="searchTitle">Search ILERI</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close search">
+        <svg aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <label class="visually-hidden" for="siteSearch">Search products, guidance and stories</label>
+    <input class="search-input" id="siteSearch" type="search" placeholder="Try “burgundy”, “fit” or “care”" autocomplete="off">
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+  </dialog>
+
+  <dialog class="cart-drawer" id="cartDrawer" aria-labelledby="cartDrawerTitle">
+    <div class="dialog-head">
+      <div>
+        <div class="eyebrow">Saved for launch</div>
+        <h2 id="cartDrawerTitle">Your launch bag</h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close launch bag">
+        <svg aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <div class="notice compact">No payment is taken. Your selections are saved in this browser until Shopify checkout is connected.</div>
+    <div class="cart-list" id="cartDrawerItems"></div>
+    <div class="drawer-footer" id="cartDrawerFooter"></div>
+  </dialog>
+
+  <main id="app" tabindex="-1">
+    <div class="loading" role="status">Preparing the collection…</div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="?view=home">
+          <svg class="brand-mark" aria-hidden="true"><use href="#icon-mark"/></svg>
+          <span>ILERI</span>
+        </a>
+        <p>Thoughtfully designed workwear and everyday essentials for the people who care for others.</p>
+        <a href="mailto:hello@ilericollective.com">hello@ilericollective.com</a>
+      </div>
+      <nav aria-label="Shop links">
+        <h2>Explore</h2>
+        <a href="?view=shop">Shop the edit</a>
+        <a href="?view=wishlist">Wishlist</a>
+        <a href="?view=cart">Launch bag</a>
+        <a href="?view=journal">Journal</a>
+      </nav>
+      <nav aria-label="Help links">
+        <h2>Help</h2>
+        <a href="?view=page&amp;slug=contact">Contact</a>
+        <a href="?view=page&amp;slug=size-guide">Size guide</a>
+        <a href="?view=page&amp;slug=care-guide">Care guide</a>
+        <a href="?view=page&amp;slug=delivery">Delivery</a>
+        <a href="?view=page&amp;slug=returns">Returns</a>
+        <a href="?view=page&amp;slug=faq">FAQs</a>
+      </nav>
+      <nav aria-label="Policy links">
+        <h2>Information</h2>
+        <a href="?view=page&amp;slug=about">Our story</a>
+        <a href="?view=page&amp;slug=privacy">Privacy</a>
+        <a href="?view=page&amp;slug=terms">Terms</a>
+        <a href="?view=page&amp;slug=cookies">Cookies</a>
+        <a href="?view=page&amp;slug=accessibility">Accessibility</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 ILERI. All rights reserved.</span>
+      <span>Pre-launch preview · No orders or payments are currently accepted.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript>
+    <div class="noscript">ILERI’s interactive catalogue requires JavaScript. Email <a href="mailto:hello@ilericollective.com">hello@ilericollective.com</a> for launch information.</div>
+  </noscript>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
